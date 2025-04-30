@@ -12,8 +12,9 @@ Desenvolvimento de um app de Pomodoro, projeto simples para introdução ao dese
 - Criação, edição e exclusão de tarefas;
 - Possibilidade de marcar a tarefa como concluido;
 
-<img src="screen1.gif" width="45%" style="display:inline-block; margin-right:10px;" />
-<img src="screen2.gif" width="45%" style="display:inline-block;" />
+![](screen1.gif)
+
+![](screen2.gif)
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
