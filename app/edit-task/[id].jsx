@@ -13,12 +13,14 @@ import { IconSave } from "../../components/Icons";
 import useTaskContext from "../../components/context/useTaskContext";
 import { Footer } from "../../components/Footer";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function EditTask() {
   const { id } = useLocalSearchParams();
-  const { tasks, updateTask } = useTaskContext()
-  const task = tasks.find(t => t.id == id)
-  const [description, setDescription] = useState('')
+  const { tasks, updateTask } = useTaskContext();
+  const task = tasks.find(t => t.id == id);
+  const [description, setDescription] = useState('');
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (task) {
@@ -39,7 +41,7 @@ export default function EditTask() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.inner}>
-          <Text style={styles.text}>Editar tarefa: </Text>
+          <Text style={styles.text}>{t('tasks.task-edit.title')}</Text>
           <TextInput
             style={styles.input}
             numberOfLines={10}
@@ -50,7 +52,7 @@ export default function EditTask() {
           <View style={styles.actions}>
             <Pressable style={styles.button} onPress={handleSave}>
               <IconSave />
-              <Text>Salvar</Text>
+              <Text>{t('tasks.task-edit.button-save')}</Text>
             </Pressable>
           </View>
         </View>

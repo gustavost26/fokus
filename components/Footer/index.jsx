@@ -1,12 +1,15 @@
+import { useTranslation } from "react-i18next";
 import { StyleSheet, Text, View } from "react-native";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+  
   return (
     <View style={styles.footer}>
-      <Text style={styles.footerText}>Projeto sem fins lucrativos.</Text>
+      <Text style={styles.footerText}>{t('footer.text-1')}</Text>
       <Text style={styles.footerText}>
-        Desenvolvido por{" "}
-        <Text style={styles.footerTextDeveloper}>Gustavo Teles</Text>
+        {t('footer.text-2')}
+        <Text style={styles.footerTextDeveloper}>{t('footer.developer')}</Text>
       </Text>
     </View>
   );

@@ -2,23 +2,26 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import { FokusButton } from "../components/FokusButton";
 import { Footer } from "../components/Footer";
 import { router } from "expo-router";
+import { useTranslation } from "react-i18next";
 
 export default function Index() {
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <Image source={require("../assets/images/logo.png")} />
       <View style={styles.inner}>
         <Text style={styles.title}>
-          Otimize sua {'\n'} produtividade, {'\n'}
+          {t('home.subtitle-1')}
           <Text style={styles.bold}>
-            mergulhe no que {'\n'} importa
+          {t('home.subtitle-2')}
           </Text>
         </Text>
         
         <Image style={styles.image} source={require("../assets/images/home.png")} />
         <FokusButton 
           onPress={() => router.navigate("/pomodoro")}
-          title="Quero iniciar!" 
+          title={t('home.button')} 
         />
       </View>
       <Footer />

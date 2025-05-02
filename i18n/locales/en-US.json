@@ -1,0 +1,45 @@
+{
+  "language": "Language",
+  "menu": {
+    "timer": "Timer",
+    "tasks": "Task List",
+    "settings": "Settings"
+  },
+  "home": {
+    "subtitle-1": "Boost your \n productivity, \n",
+    "subtitle-2": "immerse yourself in what \n matters",
+    "button": "Get Started"
+  },
+  "timer": {
+    "focus": "Focus",
+    "short": "Short Break",
+    "long": "Long Break",
+    "start": "Start",
+    "pause": "Pause"
+  },
+  "tasks": {
+    "task-list": {
+      "title": "Task List: ",
+      "button-add": "Add New Task"
+    },
+    "task-add": {
+      "title": "Add Task: ",
+      "subtitle": "What are you working on?",
+      "button-save": "Save"
+    },
+    "task-edit": {
+      "title": "Edit Task: ",
+      "button-save": "Save"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme"
+  },
+  "footer": {
+    "text-1": "Non-profit project.",
+    "text-2": "Developed by ",
+    "developer": "Gustavo Teles"
+  }
+}
