@@ -1,0 +1,45 @@
+{
+  "language": "Idioma",
+  "menu": {
+    "timer": "Temporizador",
+    "tasks": "Lista de tareas",
+    "settings": "Configuración"
+  },
+  "home": {
+    "subtitle-1": "Optimiza tu \n productividad, \n",
+    "subtitle-2": "sumérgete en lo que \n importa",
+    "button": "Quiero empezar"
+  },
+  "timer": {
+    "focus": "Foco",
+    "short": "Pausa corta",
+    "long": "Pausa larga",
+    "start": "Empezar",
+    "pause": "Pausar"
+  },
+  "tasks": {
+    "task-list": {
+      "title": "Lista de tareas: ",
+      "button-add": "Añadir nueva tarea"
+    },
+    "task-add": {
+      "title": "Añadir tarea: ",
+      "subtitle": "¿En qué estás trabajando?",
+      "button-save": "Guardar"
+    },
+    "task-edit": {
+      "title": "Editar tarea: ",
+      "button-save": "Guardar"
+    }
+  },
+  "settings": {
+    "title": "Configuración",
+    "language": "Idioma",
+    "theme": "Tema"
+  },
+  "footer": {
+    "text-1": "Proyecto sin fines de lucro.",
+    "text-2": "Desarrollado por ",
+    "developer": "Gustavo Teles"
+  }
+}
