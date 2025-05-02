@@ -1,33 +1,36 @@
 import { useRef, useState } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { FokusButton } from "../components/FokusButton";
 import { ActionButton } from "../components/ActionButton";
 import { Timer } from "../components/Timer";
 import { IconPlay, IconPause } from "../components/Icons";
 import { Footer } from "../components/Footer";
-
-const pomodoro = [
-  {
-    id: 'focus',
-    initialValue: 25 * 60,
-    image: require('../assets/images/pomodoro.png'),
-    display: 'Focus'
-  },
-  {
-    id: 'short',
-    initialValue: 5 * 60,
-    image: require('../assets/images/short.png'),
-    display: 'Pausa Curta'
-  },
-  {
-    id: 'long',
-    initialValue: 15 * 60,
-    image: require('../assets/images/long.png'),
-    display: 'Pausa Longa'
-  }
-];
+import { useTranslation } from "react-i18next";
 
 export default function Pomodoro() {
+  const { t } = useTranslation();
+
+  const pomodoro = [
+    {
+      id: 'focus',
+      initialValue: 25 * 60,
+      image: require('../assets/images/pomodoro.png'),
+      display: t('timer.focus')
+    },
+    {
+      id: 'short',
+      initialValue: 5 * 60,
+      image: require('../assets/images/short.png'),
+      display: t('timer.short')
+    },
+    {
+      id: 'long',
+      initialValue: 15 * 60,
+      image: require('../assets/images/long.png'),
+      display: t('timer.long')
+    }
+  ];
+
   const [timerType, setTimerType] = useState(pomodoro[0]);
   const [seconds, setSeconds] = useState(pomodoro[0].initialValue);
   const [timerRunning, setTimerRunning] = useState(false);
@@ -88,7 +91,7 @@ export default function Pomodoro() {
         </View>
         <Timer totalSeconds={seconds} />
         <FokusButton 
-          title={timerRunning ? 'Pausar' : 'Começar'}
+          title={timerRunning ? t('timer.pause') : t('timer.start')}
           icon={timerRunning ? <IconPause /> : <IconPlay />}
           onPress={toogleTimer} 
         />

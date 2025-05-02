@@ -4,26 +4,17 @@ import { FokusButton } from "../../components/FokusButton";
 import { IconPlus } from "../../components/Icons";
 import { router } from "expo-router";
 import useTaskContext from "../../components/context/useTaskContext";
+import { useTranslation } from "react-i18next";
 
 export default function Tasks() {
-
   const { tasks, deleteTask, toggleTaskCompleted } = useTaskContext();
+  const { t } = useTranslation();
 
   return (
     <View style={styles.container}>
       <View style={styles.wrapper}>
-        
         <View style={styles.inner}>
-          {/* {tasks.map(t => {
-            return (
-              <TaskItem 
-                key={t.id}
-                completed={t.completed}
-                text={t.description}
-              />
-            )
-          })} */}
-          <FlatList 
+          <FlatList
             data={tasks}
             renderItem={({ item }) => (
               <TaskItem 
@@ -37,12 +28,12 @@ export default function Tasks() {
             keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
             ListHeaderComponent={
-              <Text style={styles.text}>Lista de tarefas: </Text>
+              <Text style={styles.text}>{t('tasks.task-list.title')}</Text>
             }
             ListFooterComponent={
               <View style={{ marginTop: 16 }}>
                 <FokusButton 
-                  title="Adicionar nova tarefa"  
+                  title={t('tasks.task-list.button-add')}
                   icon={<IconPlus outline />}
                   outline
                   onPress={() => router.navigate("/add-task")}

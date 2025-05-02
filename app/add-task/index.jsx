@@ -1,13 +1,24 @@
-import { Keyboard, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, TouchableWithoutFeedback, View } from "react-native";
+import { 
+  Keyboard, 
+  KeyboardAvoidingView, 
+  Platform, 
+  Pressable, 
+  StyleSheet, 
+  Text, 
+  TextInput, 
+  TouchableWithoutFeedback, 
+  View } from "react-native";
 import { IconSave } from "../../components/Icons";
 import { Footer } from "../../components/Footer";
 import useTaskContext from "../../components/context/useTaskContext";
 import { useState } from "react";
 import { router } from "expo-router";
+import { useTranslation } from "react-i18next";
 
 export default function AddTask() {
   const [description, setDescription] = useState("");
   const { addTask } = useTaskContext();
+  const { t } = useTranslation();
 
   const submitTask = () => {
     if(!description) {
@@ -26,8 +37,8 @@ export default function AddTask() {
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}> 
         <View style={styles.inner}>
-          <Text style={styles.text}>Adicionar tarefa: </Text>
-          <Text style={styles.label}>Em que você está trabalhando?</Text>
+          <Text style={styles.text}>{t('tasks.task-add.title')} </Text>
+          <Text style={styles.label}>{t('tasks.task-add.subtitle')}</Text>
           <TextInput 
             style={styles.input}
             numberOfLines={10}
@@ -38,7 +49,7 @@ export default function AddTask() {
           <View style={styles.actions}>
             <Pressable style={styles.button} onPress={submitTask}>
               <IconSave />
-              <Text>Salvar</Text>
+              <Text>{t('tasks.task-add.button-save')}</Text>
             </Pressable>
           </View>
         </View>
