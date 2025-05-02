@@ -3,8 +3,13 @@ import { Drawer } from "expo-router/drawer";
 import { Ionicons } from "@expo/vector-icons";
 import { router } from "expo-router";
 import { TaskProvider } from "../components/context/TaskProvider";
+import '@/i18n';
+import { useTranslation } from "react-i18next";
 
 export default function Layout() {
+
+  const { t } = useTranslation();
+
   return (
     <TaskProvider>
       <GestureHandlerRootView style={{ flex: 1 }}>
@@ -74,15 +79,62 @@ export default function Layout() {
           <Drawer.Screen
             name="pomodoro"
             options={{
-              drawerLabel: "Timer",
+              drawerLabel: t('menu.timer'),
               title: "",
             }}
           />
           <Drawer.Screen
             name="tasks/index"
             options={{
-              drawerLabel: "Lista de tarefas",
+              drawerLabel: t('menu.tasks'),
               title: "",
+            }}
+          />
+          <Drawer.Screen 
+            name="settings/index"
+            options={{
+              drawerLabel: t('menu.settings'),
+              title: "",
+            }}
+          />
+          <Drawer.Screen 
+            name="language/index"
+            options={{
+              drawerItemsStyle: {
+                display: "none",
+              },
+              title: "",
+              headerLeft: () => {
+                return (
+                  <Ionicons 
+                    name="arrow-back"
+                    size={24}
+                    color={"#FFF"}
+                    style={{ marginLeft: 16 }}
+                    onPress={() => router.navigate("/settings")}
+                  />
+                )
+              }
+            }}
+          />
+          <Drawer.Screen 
+            name="theme/index"
+            options={{
+              drawerItemsStyle: {
+                display: "none",
+              },
+              title: "",
+              headerLeft: () => {
+                return (
+                  <Ionicons 
+                    name="arrow-back"
+                    size={24}
+                    color={"#FFF"}
+                    style={{ marginLeft: 16 }}
+                    onPress={() => router.navigate("/settings")}
+                  />
+                )
+              }
             }}
           />
         </Drawer>
