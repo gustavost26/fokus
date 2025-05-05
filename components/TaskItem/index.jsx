@@ -1,5 +1,8 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { IconCheck, IconPencil, IconTrash } from "../Icons";
+import { Colors } from "../../constants/Colors";
+import { useContext } from "react";
+import { ThemeContext } from "../context/themeContext";
 
 const TaskItem = ({
   completed,
@@ -9,9 +12,13 @@ const TaskItem = ({
   onPressDelete,
 }) => {
   const cardStyles = [styles.card];
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   if(completed){
-    cardStyles.push(styles.cardCompleted);
+    cardStyles.push({backgroundColor: theme.cardCompleted});
+  } else {
+    cardStyles.push({ backgroundColor: theme.backgroundSecondary });
   }
 
   return (
@@ -19,12 +26,12 @@ const TaskItem = ({
       <Pressable onPress={onToggleComplete}>
         <IconCheck checked={completed} />
       </Pressable>
-      <Text style={styles.text}>{text}</Text>
+      <Text style={[styles.text, { color: theme.text }]}>{text}</Text>
       <Pressable onPress={onPressEdit}>
-        <IconPencil />
+        <IconPencil color={theme.text} />
       </Pressable>
       <Pressable onPress={onPressDelete}>
-        <IconTrash />
+        <IconTrash color={theme.text} />
       </Pressable>
     </View>
   );
@@ -33,7 +40,6 @@ const TaskItem = ({
 const styles = StyleSheet.create({
   card: {
     flexDirection: "row",
-    backgroundColor: "#98A0A8",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 8,
@@ -41,12 +47,8 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     gap: 8
   },
-  cardCompleted: {
-    backgroundColor: "#0F725C",
-  },
   text: {
     flex: 1,
-    color: "#021123",
     fontSize: 18,
     fontWeight: "bold"
   }

@@ -1,32 +1,36 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Image, StyleSheet, View } from "react-native";
-import { FokusButton } from "../components/FokusButton";
-import { ActionButton } from "../components/ActionButton";
-import { Timer } from "../components/Timer";
-import { IconPlay, IconPause } from "../components/Icons";
-import { Footer } from "../components/Footer";
+import { FokusButton } from "../../components/FokusButton";
+import { ActionButton } from "../../components/ActionButton";
+import { Timer } from "../../components/Timer";
+import { IconPlay, IconPause } from "../../components/Icons";
+import { Footer } from "../../components/Footer";
 import { useTranslation } from "react-i18next";
+import { Colors } from "../../constants/Colors";
+import { ThemeContext } from "../../components/context/themeContext";
 
 export default function Pomodoro() {
   const { t } = useTranslation();
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   const pomodoro = [
     {
       id: 'focus',
       initialValue: 25 * 60,
-      image: require('../assets/images/pomodoro.png'),
+      image: require('../../assets/images/pomodoro.png'),
       display: t('timer.focus')
     },
     {
       id: 'short',
       initialValue: 5 * 60,
-      image: require('../assets/images/short.png'),
+      image: require('../../assets/images/short.png'),
       display: t('timer.short')
     },
     {
       id: 'long',
       initialValue: 15 * 60,
-      image: require('../assets/images/long.png'),
+      image: require('../../assets/images/long.png'),
       display: t('timer.long')
     }
   ];
@@ -75,10 +79,16 @@ export default function Pomodoro() {
 
   return (
     <View
-      style={styles.container}
+      style={[styles.container, { backgroundColor: theme.backgroundPrimary }]}
     >
       <Image source={timerType.image} /> 
-      <View style={styles.actions} >
+      <View style={[
+        styles.actions,
+         { 
+          backgroundColor: theme.action.background,
+          borderColor: theme.action.border
+         }
+      ]}>
         <View style={styles.context}>
           {pomodoro.map(p => (
             <ActionButton 
@@ -106,17 +116,14 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#021123",
     gap: 40
   },
   actions: {
     paddingVertical: 24,
     paddingHorizontal: 24,
-    backgroundColor: "#14448080",
     width: "80%",
     borderRadius: 32,
     borderWidth: 2,
-    borderColor: "#144480",
     gap: 32
   },
   context: {

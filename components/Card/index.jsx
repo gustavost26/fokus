@@ -1,11 +1,16 @@
 import { Ionicons } from "@expo/vector-icons";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
+import { Colors } from "../../constants/Colors";
+import { useContext } from "react";
+import { ThemeContext } from "../context/themeContext";
 
 export const Card = ({ text }) => {
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      <Ionicons name="chevron-forward" size={24} color="#021123" />
+    <View style={[styles.container, { backgroundColor: theme.cardTheme }]}>
+      <Text style={[styles.text, { color: theme.text }]}>{text}</Text>
+      <Ionicons name="chevron-forward" size={24} color={theme.text} />
     </View>
   )
 }
@@ -13,7 +18,6 @@ export const Card = ({ text }) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    backgroundColor: "#98A0A8",
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 10,
@@ -24,7 +28,6 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
-    color: "#021123",
     fontSize: 18,
     fontWeight: "bold"
   }

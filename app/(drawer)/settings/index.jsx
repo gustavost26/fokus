@@ -1,19 +1,24 @@
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Card } from "../../components/Card";
+import { Card } from "../../../components/Card";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
+import { Colors } from "../../../constants/Colors";
+import { ThemeContext } from "../../../components/context/themeContext";
+import { useContext } from "react";
 
 export default function Settings () {
   const { t } = useTranslation();
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   const settings = [
     { title: t('settings.language'), onPress: () => router.navigate("/language") },
-    { title: t('settings.theme'), onPress: () => router.navigate("/theme") },
+    { title: t('settings.theme.title'), onPress: () => router.navigate("/theme") },
   ];
 
   return (
-    <View style={styles.containe}>
-      <Text style={styles.text}>{t('settings.title')}</Text>
+    <View style={[styles.containe, { backgroundColor: theme.backgroundPrimary }]}>
+      <Text style={[styles.text, { color: theme.text }]}>{t('settings.title')}</Text>
       {settings.map((value, index) => {
         return (
           <Pressable key={index} onPress={value.onPress} >
@@ -29,11 +34,10 @@ const styles = StyleSheet.create({
   containe: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#021123",
+    paddingTop: 20
   },
   text: {
     textAlign: "center",
-    color: "#FFF",
     fontSize: 26,
     marginBottom: 16
   }

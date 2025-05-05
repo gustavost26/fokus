@@ -1,8 +1,10 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { IconBrazil, IconSpain, IconUSA } from "../../components/Icons";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { IconBrazil, IconSpain, IconUSA } from "../../../components/Icons";
 import { useTranslation } from "react-i18next";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Colors } from "../../../constants/Colors";
+import { ThemeContext } from "../../../components/context/themeContext";
 
 const flags = [
   { component: IconBrazil, lang: "pt-BR", name: "Brasil" },
@@ -13,6 +15,8 @@ const flags = [
 export default function Language() {
   const { i18n, t } = useTranslation();
   const currentLanguage = i18n.language;
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   useEffect(() => {
     const loadLanguage = async () => {
@@ -31,8 +35,8 @@ export default function Language() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{t('language')}</Text>
+    <View style={[styles.container, { backgroundColor: theme.backgroundPrimary }]}>
+      <Text style={[styles.text, { color: theme.text }]}>{t('language')}</Text>
       <View style={styles.flagContainer} >
         {flags.map(({component: Flag, lang, name}) => (
           <TouchableOpacity 
@@ -56,11 +60,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor: "#021123",
-    gap: 40
+    gap: 20,
+    paddingTop: 20
   },
   text: {
-    color: "#FFF",
     textAlign: "center",
     fontSize: 26
   },

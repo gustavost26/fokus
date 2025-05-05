@@ -7,13 +7,15 @@ import {
   StyleSheet, 
   Text, 
   TextInput, 
-  TouchableWithoutFeedback, 
+  TouchableWithoutFeedback,
   View } from "react-native";
-import { IconSave } from "../../components/Icons";
-import useTaskContext from "../../components/context/useTaskContext";
-import { Footer } from "../../components/Footer";
-import { useEffect, useState } from "react";
+import { IconSave } from "../../../components/Icons";
+import useTaskContext from "../../../components/context/useTaskContext";
+import { Footer } from "../../../components/Footer";
+import { useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Colors } from "../../../constants/Colors";
+import { ThemeContext } from "../../../components/context/themeContext";
 
 export default function EditTask() {
   const { id } = useLocalSearchParams();
@@ -21,6 +23,8 @@ export default function EditTask() {
   const task = tasks.find(t => t.id == id);
   const [description, setDescription] = useState('');
   const { t } = useTranslation();
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   useEffect(() => {
     if (task) {
@@ -36,14 +40,14 @@ export default function EditTask() {
 
   return (
     <KeyboardAvoidingView
-      style={styles.container}
+      style={[styles.container, { backgroundColor: theme.backgroundPrimary }]}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.inner}>
-          <Text style={styles.text}>{t('tasks.task-edit.title')}</Text>
+        <View style={[styles.inner, { backgroundColor: theme.backgroundSecondary }]}>
+          <Text style={[styles.text, { color: theme.text }]}>{t('tasks.task-edit.title')}</Text>
           <TextInput
-            style={styles.input}
+            style={[styles.input, { backgroundColor: theme.backgroundInput, color: theme.text }]}
             numberOfLines={10}
             multiline={true}
             value={description}
@@ -51,8 +55,8 @@ export default function EditTask() {
           />
           <View style={styles.actions}>
             <Pressable style={styles.button} onPress={handleSave}>
-              <IconSave />
-              <Text>{t('tasks.task-edit.button-save')}</Text>
+              <IconSave color={theme.text}/>
+              <Text style={{ color: theme.text }}>{t('tasks.task-edit.button-save')}</Text>
             </Pressable>
           </View>
         </View>
@@ -65,18 +69,15 @@ export default function EditTask() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#021123",
     gap: 16,
     alignItems: "center",
     justifyContent: "center"
   },
   text: {
-    color: "#FFF",
     textAlign: "center",
     fontSize: 26
   },
   inner: {
-    backgroundColor: "#98A0A8",
     width: "90%",
     borderRadius: 8,
     padding: 16,
@@ -87,7 +88,6 @@ const styles = StyleSheet.create({
     fontWeight: 600
   },
   input: {
-    backgroundColor: "#FFF",
     padding: 16,
     borderRadius: 8,
     height: 140

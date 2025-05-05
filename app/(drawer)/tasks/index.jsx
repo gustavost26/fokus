@@ -1,17 +1,22 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import TaskItem from "../../components/TaskItem";
-import { FokusButton } from "../../components/FokusButton";
-import { IconPlus } from "../../components/Icons";
+import TaskItem from "../../../components/TaskItem";
+import { FokusButton } from "../../../components/FokusButton";
+import { IconPlus } from "../../../components/Icons";
 import { router } from "expo-router";
-import useTaskContext from "../../components/context/useTaskContext";
+import useTaskContext from "../../../components/context/useTaskContext";
 import { useTranslation } from "react-i18next";
+import { Colors } from "../../../constants/Colors";
+import { useContext } from "react";
+import { ThemeContext } from "../../../components/context/themeContext";
 
 export default function Tasks() {
   const { tasks, deleteTask, toggleTaskCompleted } = useTaskContext();
   const { t } = useTranslation();
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.backgroundPrimary }]}>
       <View style={styles.wrapper}>
         <View style={styles.inner}>
           <FlatList
@@ -28,7 +33,7 @@ export default function Tasks() {
             keyExtractor={item => item.id}
             ItemSeparatorComponent={() => <View style={{ height: 8 }} />}
             ListHeaderComponent={
-              <Text style={styles.text}>{t('tasks.task-list.title')}</Text>
+              <Text style={[styles.text, { color: theme.text }]}>{t('tasks.task-list.title')}</Text>
             }
             ListFooterComponent={
               <View style={{ marginTop: 16 }}>
@@ -50,8 +55,8 @@ export default function Tasks() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#021123",
     alignItems: "center",
+    paddingTop: 15
   },
   wrapper: {
     gap: 40,
@@ -59,7 +64,6 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: "center",
-    color: "#FFF",
     fontSize: 26,
     marginBottom: 16
   },

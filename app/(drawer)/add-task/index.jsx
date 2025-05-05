@@ -8,17 +8,21 @@ import {
   TextInput, 
   TouchableWithoutFeedback, 
   View } from "react-native";
-import { IconSave } from "../../components/Icons";
-import { Footer } from "../../components/Footer";
-import useTaskContext from "../../components/context/useTaskContext";
-import { useState } from "react";
+import { IconSave } from "../../../components/Icons";
+import { Footer } from "../../../components/Footer";
+import useTaskContext from "../../../components/context/useTaskContext";
+import { useContext, useState } from "react";
 import { router } from "expo-router";
 import { useTranslation } from "react-i18next";
+import { Colors } from "../../../constants/Colors";
+import { ThemeContext } from "../../../components/context/themeContext";
 
 export default function AddTask() {
   const [description, setDescription] = useState("");
   const { addTask } = useTaskContext();
   const { t } = useTranslation();
+  const { currentTheme } = useContext(ThemeContext);
+  const theme = Colors[currentTheme] ?? Colors.default;
 
   const submitTask = () => {
     if(!description) {
@@ -32,15 +36,15 @@ export default function AddTask() {
 
   return (
     <KeyboardAvoidingView 
-      style={styles.container}
+      style={[styles.container, { backgroundColor: theme.backgroundPrimary }]}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}> 
-        <View style={styles.inner}>
-          <Text style={styles.text}>{t('tasks.task-add.title')} </Text>
-          <Text style={styles.label}>{t('tasks.task-add.subtitle')}</Text>
+        <View style={[styles.inner, { backgroundColor: theme.backgroundSecondary }]}>
+          <Text style={[styles.text, { color: theme.text }]}>{t('tasks.task-add.title')} </Text>
+          <Text style={[styles.label, { color: theme.text }]}>{t('tasks.task-add.subtitle')}</Text>
           <TextInput 
-            style={styles.input}
+            style={[styles.input,  { backgroundColor: theme.backgroundInput, color: theme.text }]}
             numberOfLines={10}
             multiline={true}
             value={description}
@@ -48,8 +52,8 @@ export default function AddTask() {
           />
           <View style={styles.actions}>
             <Pressable style={styles.button} onPress={submitTask}>
-              <IconSave />
-              <Text>{t('tasks.task-add.button-save')}</Text>
+              <IconSave color={theme.text}/>
+              <Text style={{ color: theme.text }}>{t('tasks.task-add.button-save')}</Text>
             </Pressable>
           </View>
         </View>
@@ -62,18 +66,15 @@ export default function AddTask() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#021123",
     gap: 16,
     alignItems: "center",
     justifyContent: "center"
   },
   text: {
-    color: "#FFF",
     textAlign: "center",
     fontSize: 26
   },
   inner: {
-    backgroundColor: "#98A0A8",
     width: "90%",
     borderRadius: 8,
     padding: 16,
@@ -84,7 +85,6 @@ const styles = StyleSheet.create({
     fontWeight: 600
   },
   input: {
-    backgroundColor: "#FFF",
     padding: 16,
     borderRadius: 8,
     height: 140
