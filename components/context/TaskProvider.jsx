@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 
 export const TaskContext = createContext();
 
-const TASKS_STOORAGE_KEY = 'fokus-tasks';
+const TASKS_STORAGE_KEY = 'fokus-tasks';
 
 export function TaskProvider ({ children }) {
   const [tasks, setTasks] = useState([]);
@@ -12,7 +12,7 @@ export function TaskProvider ({ children }) {
   useEffect(() => {
     const getData = async () => {
       try {
-        const jsonValue = await AsyncStorage.getItem(TASKS_STOORAGE_KEY);
+        const jsonValue = await AsyncStorage.getItem(TASKS_STORAGE_KEY);
         const loadedData = jsonValue != null ? JSON.parse(jsonValue) : [];
         setTasks(loadedData);
         setIsLoaded(true);
@@ -28,7 +28,7 @@ export function TaskProvider ({ children }) {
     const storeData = async (value) => {
       try {
         const jsonValue = JSON.stringify(value);
-        await AsyncStorage.setItem(TASKS_STOORAGE_KEY, jsonValue);
+        await AsyncStorage.setItem(TASKS_STORAGE_KEY, jsonValue);
       } catch (e) {
         console.log(e);
       }
