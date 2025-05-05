@@ -35,7 +35,17 @@
   "settings": {
     "title": "Configurações",
     "language": "Idioma",
-    "theme": "Tema"
+    "theme": {
+      "title": "Tema",
+      "theme-switch": "Troca de Tema",
+      "theme-settings": "Configurações do Tema",
+      "dark-mode": "Modo Escuro",
+      "light-mode": "Modo Claro",
+      "dark": "Escuro",
+      "light": "Claro",
+      "system": "Sistema",
+      "default": "Padrão"
+    } 
   },
   "footer": {
     "text-1": "Projeto sem fins lucrativos.",

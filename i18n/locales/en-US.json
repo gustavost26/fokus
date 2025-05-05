@@ -35,7 +35,17 @@
   "settings": {
     "title": "Settings",
     "language": "Language",
-    "theme": "Theme"
+    "theme": {
+      "title": "Theme",
+      "theme-switch": "Switch Theme",
+      "theme-settings": "Theme Settings",
+      "dark-mode": "Dark Mode",
+      "light-mode": "Light Mode",
+      "dark": "Dark",
+      "light": "Light",
+      "system": "System",
+      "default": "Default"
+    }
   },
   "footer": {
     "text-1": "Non-profit project.",
