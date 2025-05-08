@@ -1,4 +1,4 @@
-![](thumbnail.png)
+[![1-startA.png](https://i.postimg.cc/pXkxcCpv/1-startA.png)](https://postimg.cc/qzt9z8sD) [![1-startB.png](https://i.postimg.cc/dVxFw02S/1-startB.png)](https://postimg.cc/0zDFCPHp) [![1-startC.png](https://i.postimg.cc/2S6YsWZZ/1-startC.png)](https://postimg.cc/Vd32Md4f)
 
 # Pomodoro App
 
@@ -12,9 +12,11 @@ Desenvolvimento de um app de Pomodoro, projeto simples para introdução ao dese
 - Criação, edição e exclusão de tarefas;
 - Possibilidade de marcar a tarefa como concluido;
 
-![](screen1.gif)
+[![Scree1.gif](https://i.postimg.cc/J080ZQzF/Screen1.gif)](https://postimg.cc/vgPGdf97) [![Screen2.gif](https://i.postimg.cc/NG85YZNv/Screen2.gif)](https://postimg.cc/kD4nvY3T)
 
-![](screen2.gif)
+
+[![Screen3.gif](https://i.postimg.cc/KvJj3BS9/Screen3.gif)](https://postimg.cc/SJYkwXK8)
+
 
 ## ✔️ Técnicas e tecnologias utilizadas
 
@@ -28,9 +30,10 @@ O desenvolvimento do projeto envolve as seguintes tecnologias e técnicas:
 - **React Native CLI**: Configuração e execução do projeto.
 - **Simulação de Pomodoro**: Estrutura para foco e pausas integradas ao design.
 - **React Context API**: Utilizada para o gerenciamento de estado global da aplicação, permitindo compartilhar e manter o estado das tarefas criadas pelo usuário entre diferentes componentes de forma eficiente.
-- **Async Storage**: Responsável por armazenar os dados da tarefa de forma local e persistente no dispositivo, mesmo após o app ser fechado ou reiniciado.
+- **Async Storage**: Responsável por armazenar os dados da tarefa, a seleção de idioma e tema preferido do utilizador de forma local e persistente no dispositivo, mesmo após o app ser fechado ou reiniciado.
 - **Menu Drawer**: Menu lateral implementado para facilitar a navegação do usuário entre as diferentes seções da aplicação de forma intuitiva e acessível.
-
+- **I18N**: Tratamento e configuração que possibilitar a troca de idiomas na app: pt-BR, es-ES, en-US.
+- **Dark Mode**: Possibilidade de alterar a app para os seguintes temas: Dark Mode, White Mode e Default Mode.
 
 ## 🛠️ Abrir e rodar o projeto
 
@@ -94,7 +97,24 @@ git push origin feature/nova-funcionalidade
 - **Melhorias na Interface**:
    - Trocar os Splash scree.
    - Melhorar a responsividade em dispositivos móveis.
+   - Melhora a tela de apresentação da troca de idioma.
+
+- **Outras Melhorias**:
+   - Refatorar o código para melhor legibilidade e manutenção;
+   - Reorganizar a estrutura da pasta de contextos;
+   - Corrigir o bug da statusBar ao alternar entre temas;
+   - Resolver a perda de estilização do botão durante a troca de tema.
+
 - **Funcionalidades Avançadas**:
-   - Implementar a possibilidade de alterar idioma, da suporte: Inglês e Espanhol.
-   - Melhorar a acessibilidade.
-   - Implementar a troca de modo: Dark Mode e White Mode.
+   - Implementar a possibilidade de alterar idioma, da suporte: Inglês e Espanhol. ✅
+   - Implementar a troca de modo: Dark Mode e White Mode. ✅
+   - Melhorar a acessibilidade (TalkBack e VoiceOver).
+   - Desenvolver integração como camera.
+   - Armazenamento e upload de arquivos.
+   - Push notification:
+      - Alerta relacionado ao aplicativo (ex: lembretes, atualizações);
+      - Aviso ao término de um ciclo Pomodoro;
+      - Notificação informando o fim da pausa curta ou da pausa longa.
+
+
+  
