@@ -1,5 +1,3 @@
-[![1-startA.png](https://i.postimg.cc/pXkxcCpv/1-startA.png)](https://postimg.cc/qzt9z8sD) [![1-startB.png](https://i.postimg.cc/dVxFw02S/1-startB.png)](https://postimg.cc/0zDFCPHp) [![1-startC.png](https://i.postimg.cc/2S6YsWZZ/1-startC.png)](https://postimg.cc/Vd32Md4f)
-
 # Pomodoro App
 
 Desenvolvimento de um app de Pomodoro, projeto simples para introdução ao desenvolvimento com React Native.
@@ -11,11 +9,14 @@ Desenvolvimento de um app de Pomodoro, projeto simples para introdução ao dese
 - Exibição de ícones interativos para controle do temporizador.
 - Criação, edição e exclusão de tarefas;
 - Possibilidade de marcar a tarefa como concluido;
+- Alterar o idioma da app para: Português, Inglês e Espanhol;
+- Mudança de tema: Mode Escuro, Claro e tema padrão.
 
-[![Scree1.gif](https://i.postimg.cc/J080ZQzF/Screen1.gif)](https://postimg.cc/vgPGdf97) [![Screen2.gif](https://i.postimg.cc/NG85YZNv/Screen2.gif)](https://postimg.cc/kD4nvY3T)
+[![1-startA.png](https://i.postimg.cc/pXkxcCpv/1-startA.png)](https://postimg.cc/qzt9z8sD) [![1-startB.png](https://i.postimg.cc/dVxFw02S/1-startB.png)](https://postimg.cc/0zDFCPHp)
 
+[![1-startC.png](https://i.postimg.cc/2S6YsWZZ/1-startC.png)](https://postimg.cc/Vd32Md4f) [![Scree1.gif](https://i.postimg.cc/J080ZQzF/Screen1.gif)](https://postimg.cc/vgPGdf97) 
 
-[![Screen3.gif](https://i.postimg.cc/KvJj3BS9/Screen3.gif)](https://postimg.cc/SJYkwXK8)
+[![Screen2.gif](https://i.postimg.cc/NG85YZNv/Screen2.gif)](https://postimg.cc/kD4nvY3T) [![Screen3.gif](https://i.postimg.cc/KvJj3BS9/Screen3.gif)](https://postimg.cc/SJYkwXK8)
 
 
 ## ✔️ Técnicas e tecnologias utilizadas
