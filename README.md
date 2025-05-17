@@ -12,11 +12,10 @@ Desenvolvimento de um app de Pomodoro, projeto simples para introdução ao dese
 - Alterar o idioma da app para: Português, Inglês e Espanhol;
 - Mudança de tema: Mode Escuro, Claro e tema padrão.
 
-[![1-startA.png](https://i.postimg.cc/pXkxcCpv/1-startA.png)](https://postimg.cc/qzt9z8sD) [![1-startB.png](https://i.postimg.cc/dVxFw02S/1-startB.png)](https://postimg.cc/0zDFCPHp)
-
-[![1-startC.png](https://i.postimg.cc/2S6YsWZZ/1-startC.png)](https://postimg.cc/Vd32Md4f) [![Scree1.gif](https://i.postimg.cc/J080ZQzF/Screen1.gif)](https://postimg.cc/vgPGdf97) 
-
-[![Screen2.gif](https://i.postimg.cc/NG85YZNv/Screen2.gif)](https://postimg.cc/kD4nvY3T) [![Screen3.gif](https://i.postimg.cc/KvJj3BS9/Screen3.gif)](https://postimg.cc/SJYkwXK8)
+|                               |                               |                               | 
+| :---------------------------: | :---------------------------: | :---------------------------: | 
+| [![1-startA.png](https://i.postimg.cc/pXkxcCpv/1-startA.png)](https://postimg.cc/qzt9z8sD) | [![1-startB.png](https://i.postimg.cc/dVxFw02S/1-startB.png)](https://postimg.cc/0zDFCPHp) | [![1-startC.png](https://i.postimg.cc/2S6YsWZZ/1-startC.png)](https://postimg.cc/Vd32Md4f) | 
+| [![Scree1.gif](https://i.postimg.cc/J080ZQzF/Screen1.gif)](https://postimg.cc/vgPGdf97) | [![Screen2.gif](https://i.postimg.cc/NG85YZNv/Screen2.gif)](https://postimg.cc/kD4nvY3T) | [![Screen3.gif](https://i.postimg.cc/KvJj3BS9/Screen3.gif)](https://postimg.cc/SJYkwXK8) |
 
 
 ## ✔️ Técnicas e tecnologias utilizadas
@@ -28,7 +27,7 @@ O desenvolvimento do projeto envolve as seguintes tecnologias e técnicas:
 - **`StyleSheet`**: Estilização customizada para layouts e interatividade.
 - **Imagens e SVGs**: Utilização de imagens locais e ícones SVG personalizados.
 - **`setInterval`**: Lógica de contagem regressiva com controle de interrupção.
-- **React Native CLI**: Configuração e execução do projeto.
+- **React Native e Expo**: Configuração e execução do projeto.
 - **Simulação de Pomodoro**: Estrutura para foco e pausas integradas ao design.
 - **React Context API**: Utilizada para o gerenciamento de estado global da aplicação, permitindo compartilhar e manter o estado das tarefas criadas pelo usuário entre diferentes componentes de forma eficiente.
 - **Async Storage**: Responsável por armazenar os dados da tarefa, a seleção de idioma e tema preferido do utilizador de forma local e persistente no dispositivo, mesmo após o app ser fechado ou reiniciado.
